@@ -1,4 +1,4 @@
-# BrowserMind – Complete Technical Documentation
+# BrowserAgent – Complete Technical Documentation
 
 > **Author:** Narendra Sirvi (Naren456)  
 > **Stack:** TypeScript · Node.js · Express · Playwright · React · Claude API (Anthropic)  
@@ -23,11 +23,11 @@
 
 ## 1. Project Overview
 
-BrowserMind is an **autonomous web agent** — a system where an LLM (Claude) can independently navigate websites, click buttons, fill forms, and extract information to complete a user-given goal — without any human intervention per step.
+BrowserAgent is an **autonomous web agent** — a system where an LLM (Claude) can independently navigate websites, click buttons, fill forms, and extract information to complete a user-given goal — without any human intervention per step.
 
 ### What it does in plain language
 You type: *"Go to Amazon, search for mechanical keyboards, and tell me the top 3 results under ₹3000."*  
-BrowserMind: opens a real browser, navigates Amazon, searches, reads the results, and returns them to you — step by step, streamed live.
+BrowserAgent: opens a real browser, navigates Amazon, searches, reads the results, and returns them to you — step by step, streamed live.
 
 ### What makes it non-trivial
 - The agent must **plan** which action to take next (LLM reasoning)
@@ -50,7 +50,7 @@ The loop is:
 Thought → Action → Observation → Thought → Action → ...
 ```
 
-In BrowserMind:
+In BrowserAgent:
 - **Thought** = Claude's internal reasoning (what should I do next?)
 - **Action** = a tool call (`click_element`, `navigate_to`, `type_text`, etc.)
 - **Observation** = the Playwright result fed back as `tool_result` in the next message
@@ -571,15 +571,15 @@ What separates a demo from a real system.
 
 ### Section A: Fundamentals
 
-**Q1. What is an AI agent? How is BrowserMind an agent and not just a chatbot?**
+**Q1. What is an AI agent? How is BrowserAgent an agent and not just a chatbot?**
 
-A chatbot takes input, runs one inference, returns output — no external state, no looping. An agent has a **perception-action loop**: it perceives the environment (browser state), decides an action, executes it, observes the new state, and repeats. BrowserMind has this loop — Claude doesn't just answer, it acts, observes the result, and plans the next move. The key difference is **agency over time**.
+A chatbot takes input, runs one inference, returns output — no external state, no looping. An agent has a **perception-action loop**: it perceives the environment (browser state), decides an action, executes it, observes the new state, and repeats. BrowserAgent has this loop — Claude doesn't just answer, it acts, observes the result, and plans the next move. The key difference is **agency over time**.
 
 ---
 
 **Q2. Explain the ReAct pattern. What does "Reasoning + Acting" mean in the context of your project?**
 
-ReAct interleaves reasoning (chain-of-thought) with action. In BrowserMind:
+ReAct interleaves reasoning (chain-of-thought) with action. In BrowserAgent:
 - **Reasoning:** Claude internally thinks about what to do next ("The search box is element 4, I should type the query into it")
 - **Acting:** Claude outputs a tool call (`type_text(id: 4, text: "mechanical keyboard")`)
 - **Observation:** Playwright executes the action, the result is returned as a `tool_result`
@@ -675,9 +675,9 @@ Claude is doing **pattern matching at scale**, not understanding in a human sens
 
 ---
 
-**Q12. What is a "system prompt" and how do you use it in BrowserMind?**
+**Q12. What is a "system prompt" and how do you use it in BrowserAgent?**
 
-A system prompt is a special instruction block passed to the LLM before the user conversation. In BrowserMind, the system prompt:
+A system prompt is a special instruction block passed to the LLM before the user conversation. In BrowserAgent, the system prompt:
 - Defines the agent's role ("You are an autonomous web agent")
 - Describes available tools and how to use them
 - Sets constraints (detect loops and switch strategy, never navigate away from task scope)
@@ -700,7 +700,7 @@ Your agent mitigates this by: grounding the LLM with real DOM observations, requ
 
 **Q14. What is "grounding" in the context of LLM agents?**
 
-Grounding means connecting the LLM's abstract reasoning to concrete, verifiable external state. An ungrounded LLM can only work with what it was trained on. A grounded agent (like BrowserMind) reads the *actual current state* of the browser — real DOM, real screenshots, real error messages — and feeds that back into context. This prevents the LLM from reasoning about a page that doesn't exist or has changed.
+Grounding means connecting the LLM's abstract reasoning to concrete, verifiable external state. An ungrounded LLM can only work with what it was trained on. A grounded agent (like BrowserAgent) reads the *actual current state* of the browser — real DOM, real screenshots, real error messages — and feeds that back into context. This prevents the LLM from reasoning about a page that doesn't exist or has changed.
 
 ---
 
@@ -721,7 +721,7 @@ Technically yes, but practically several things would degrade:
 - **ReAct:** Plans and acts interleaved — each step's plan is informed by the previous step's observation. Adaptive, handles surprises, but can meander.
 - **Plan-then-Execute:** First generates a complete plan (step 1: navigate, step 2: search, etc.), then executes without replanning. Faster, but fails on dynamic pages where the plan assumptions don't hold.
 
-BrowserMind uses ReAct, which is better for web tasks because websites are unpredictable (CAPTCHAs, unexpected modals, page load failures).
+BrowserAgent uses ReAct, which is better for web tasks because websites are unpredictable (CAPTCHAs, unexpected modals, page load failures).
 
 ---
 
@@ -733,7 +733,7 @@ Shadow DOM is a Web Components feature that encapsulates DOM subtrees. Elements 
 
 ---
 
-**Q18. How would you add memory to BrowserMind so it remembers past tasks?**
+**Q18. How would you add memory to BrowserAgent so it remembers past tasks?**
 
 Two types of memory:
 - **Short-term (within a session):** Already implemented — the `messages` array is the agent's working memory.
@@ -764,4 +764,4 @@ Each `POST /api/runs` creates an independent `Run` entry in `RunStore` with its 
 
 ---
 
-*Document generated based on BrowserMind repository review — github.com/Naren456/browser-mind*
+*Document generated based on BrowserAgent repository review — github.com/Naren456/browser-mind*

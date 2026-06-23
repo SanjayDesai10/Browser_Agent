@@ -1,9 +1,9 @@
 # Design Rationale: Industrial Telemetry
 
-This document outlines the aesthetic and structural choices for the BrowserMind operator console.
+This document outlines the aesthetic and structural choices for the BrowserAgent operator console.
 
 ## The Subject Matter
-BrowserMind is not a consumer SaaS or a friendly AI chatbot. It is a tool for a grader to observe, in real-time, an LLM making sequential decisions to drive a headless browser. The core design problem is **telemetry and auditability**: the viewer must trust the process and instantly comprehend what the machine is doing, when it did it, and what the screen looked like at that exact millisecond. 
+BrowserAgent is not a consumer SaaS or a friendly AI chatbot. It is a tool for a grader to observe, in real-time, an LLM making sequential decisions to drive a headless browser. The core design problem is **telemetry and auditability**: the viewer must trust the process and instantly comprehend what the machine is doing, when it did it, and what the screen looked like at that exact millisecond. 
 
 ## Pass 1 Decisions
 

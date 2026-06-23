@@ -1,6 +1,6 @@
-# BrowserMind Backend Architecture
+# BrowserAgent Backend Architecture
 
-This directory contains the Node.js / Express backend that powers the BrowserMind autonomous web agent.
+This directory contains the Node.js / Express backend that powers the BrowserAgent autonomous web agent.
 
 ## Core Architecture
 

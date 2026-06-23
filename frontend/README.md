@@ -1,6 +1,6 @@
-# BrowserMind Frontend: Operator Console
+# BrowserAgent Frontend: Operator Console
 
-This directory contains the React + Vite frontend for BrowserMind. It serves as the primary interface for users to dispatch tasks to the autonomous agent and monitor its real-time execution.
+This directory contains the React + Vite frontend for BrowserAgent. It serves as the primary interface for users to dispatch tasks to the autonomous agent and monitor its real-time execution.
 
 ## Design Philosophy: Industrial Telemetry
 

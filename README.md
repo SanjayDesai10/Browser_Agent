@@ -1,5 +1,5 @@
 <div align="center">
-  <h1>BrowserMind</h1>
+  <h1>BrowserAgent</h1>
   <p><strong>An autonomous web automation agent driven by ReAct and Playwright.</strong></p>
 </div><hr />
 
@@ -12,7 +12,7 @@
 - [Contributing](#contributing)
 
 ## Overview
-BrowserMind is a full-stack autonomous web automation agent. By leveraging a **ReAct (Reasoning and Acting)** orchestration loop and a headless Playwright browser, BrowserMind can execute complex, multi-step tasks on the live web driven purely by natural language instructions.
+BrowserAgent is a full-stack autonomous web automation agent. By leveraging a **ReAct (Reasoning and Acting)** orchestration loop and a headless Playwright browser, BrowserAgent can execute complex, multi-step tasks on the live web driven purely by natural language instructions.
 
 ### Built With
 <p>
@@ -26,7 +26,7 @@ BrowserMind is a full-stack autonomous web automation agent. By leveraging a **R
 
 ## Key Features
 
-- **LLM-Driven ReAct Loop**: At the core of BrowserMind is an autonomous reasoning engine. The LLM iterates in a continuous loop—thinking, invoking tools, evaluating results, and correcting its own path.
+- **LLM-Driven ReAct Loop**: At the core of BrowserAgent is an autonomous reasoning engine. The LLM iterates in a continuous loop—thinking, invoking tools, evaluating results, and correcting its own path.
 - **Set-of-Marks (SoM) Navigation**: Instead of forcing the LLM to parse raw HTML or guess CSS selectors, the backend assigns a unique integer ID to every interactive element. The agent interacts with extreme precision using the `interact_with_id` tool.
 - **"Industrial Telemetry" Console**: A brutalist, high-trust Operator Console built with React. Features include a **Live Viewport Stream**, a continuous **Telemetry Tape** log of machine reasoning, and a **Vision Timeline Filmstrip**.
 
@@ -46,8 +46,8 @@ The system is built on a decoupled architecture:
 ### 1. Clone & Install
 Install the packages for both the backend and frontend:
 ```bash
-git clone https://github.com/your-username/browsermind.git
-cd browsermind
+git clone https://github.com/your-username/browseragent.git
+cd browseragent
 
 # Install backend dependencies & Playwright Chromium
 cd backend
@@ -94,7 +94,7 @@ npm run dev
 
 ## Contributing
 Contributions, issues, and feature requests are welcome!
-Feel free to check the [issues page](https://github.com/your-username/browsermind/issues).
+Feel free to check the [issues page](https://github.com/your-username/browseragent/issues).
 
 1. Fork the Project
 2. Create your Feature Branch (`git checkout -b feature/AmazingFeature`)
