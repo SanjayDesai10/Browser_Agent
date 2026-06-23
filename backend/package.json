@@ -1,7 +1,7 @@
 {
   "name": "website-automation-agent-backend",
   "version": "1.0.0",
-  "description": "Backend for BrowserMind agent",
+  "description": "Backend for BrowserAgent",
   "main": "dist/main.js",
   "scripts": {
     "start": "node dist/main.js",

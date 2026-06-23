@@ -22,7 +22,7 @@ export async function runAgent(
     apiKey: config.openRouterApiKey,
     defaultHeaders: {
       "HTTP-Referer": "http://localhost:3000",
-      "X-Title": "BrowserMind Agent",
+      "X-Title": "BrowserAgent",
     }
   });
 

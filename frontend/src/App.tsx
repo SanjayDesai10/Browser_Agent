@@ -120,7 +120,7 @@ function App() {
       <header className="chat-header">
         <div className="chat-header-icon">🌐</div>
         <div className="chat-header-text">
-          <h1>BrowserMind</h1>
+          <h1>BrowserAgent</h1>
           <p>AI-powered browser automation</p>
         </div>
         <div className="header-status">
